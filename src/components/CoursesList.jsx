@@ -1,14 +1,12 @@
 import React from 'react';
 import Course from './Course';
+import CourseAddForm from './CourseAddForm';
 
 const CoursesList = (props) => (
     <div>
-            <form>
-                <input type="text" placeholder="Nombre del Curso" name="name" required />
-                <input type="text" placeholder="Profesor" name="teacher" required />
-                <input type="hidden" name="id" value={Math.floor(Math.random() * 100)} />
-                <input type="submit" value="Guardar" />
-            </form>
+            <CourseAddForm
+            onAddCourse={props.onAddCourse}
+            ></CourseAddForm>
 
             <ul>
                 {
