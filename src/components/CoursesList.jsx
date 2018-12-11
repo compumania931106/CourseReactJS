@@ -1,12 +1,9 @@
 import React from 'react';
 import Course from './Course';
-import CourseAddForm from './CourseAddForm';
 
 const CoursesList = (props) => (
-    <div>
-            <CourseAddForm
-            onAddCourse={props.onAddCourse}
-            ></CourseAddForm>
+  
+
 
             <ul>
                 {
@@ -21,7 +18,6 @@ const CoursesList = (props) => (
                 }
                 
             </ul>
-        </div>
 );
 
 export default CoursesList;

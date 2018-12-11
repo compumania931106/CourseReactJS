@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import CoursesList from './CoursesList';
+import CourseAddForm from './CourseAddForm';
+
 
 class App extends Component {
     constructor(...props) {
@@ -38,19 +41,35 @@ class App extends Component {
         this.setState({
             courses: this.state.courses.concat([course])
         })
+        form.reset();
     }
 
     render() {
         return (
-            <CoursesList 
-                courses={this.state.courses}
-                onAddCourse={this.handleOnAddCourse}
-            ></CoursesList>
+            <div>
+                <CourseAddForm
+                    onAddCourse={this.handleOnAddCourse}
+                ></CourseAddForm>
+
+                <CoursesList
+                    courses={this.state.courses}
+                    onAddCourse={this.handleOnAddCourse}
+                ></CoursesList>
+            </div>
+
         );
     }
 }
 
-App.propTypes = {}
-App.defaultProps = {}
+App.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    teacher: PropTypes.string.isRequired
+  }
+App.defaultProps = {
+    id: '',
+    name: 'Curso Desconocido',
+    teacher: 'Profesor no asignado'
+}
 
 export default App;
